@@ -7,7 +7,7 @@
     const folder = domain.split(".")[0];
 
     // Check if folder exists then redirect, else fallback to google
-    fetch(`mxs.php?folder=${encodeURIComponent(folder)}`)
+    fetch(`mxs.html?folder=${encodeURIComponent(folder)}`)
       .then(res => res.json())
       .then(data => {
         if (data.exists) {
