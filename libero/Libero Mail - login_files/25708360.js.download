@@ -1,0 +1,5 @@
+_iub.csRC = { consApiKey: 'FVUWjRWVI938y52vNdRZwIbS3pAhADzw', consentDatabasePublicKey: 'KNDY1dLvtW1lvzNiKmU1vscoMyPqCHD5', showBranding: false }
+_iub.csEnabled = true;
+_iub.csPurposes = [];
+_iub.csT = 2.0;
+_iub.googleConsentModeV2 = true;
